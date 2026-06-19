@@ -1,0 +1,25 @@
+# Core ML & Tracking
+mlflow==3.5.0
+scikit-learn==1.6.1
+xgboost==3.0.2
+
+# Data Processing
+pandas==2.3.0
+numpy==2.2.6
+openpyxl==3.1.5
+
+# Data Visualization
+plotly
+seaborn
+
+# Infrastructure & Storage
+psycopg2-binary==2.9.10
+boto3==1.39.0
+
+# API & Server
+fastapi==0.116.1
+uvicorn[standard]==0.35.0
+requests==2.32.4
+
+# Environment Management
+python-dotenv
