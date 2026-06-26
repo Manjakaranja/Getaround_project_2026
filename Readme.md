@@ -449,7 +449,7 @@ This guarantees identical preprocessing during both training and production infe
 | Random Forest             | 16.69     | 24.51     | 0.489     |
 | Gradient Boosting         | 16.88     | 24.16     | 0.503     |
 | XGBoost                   | 16.59     | 24.13     | 0.504     |
-| **Tune_GradientBoosting** | **16.95** | **23.92** | **0.513** |
+| **Tune_XGBoosting**       | **16.68** | **23.92** | **0.513** |
 
 ---
 
@@ -471,7 +471,7 @@ Demonstrated strong predictive capability and became one of the leading models.
 
 Delivered competitive performance but did not outperform the final selected model.
 
-## Tune_GradientBoosting
+## Tune_XGBoosting
 
 Achieved the best overall balance between explanatory power, predictive accuracy, and robustness.
 
@@ -479,23 +479,23 @@ Achieved the best overall balance between explanatory power, predictive accuracy
 
 # Champion Model
 
-## Tune_GradientBoosting
+## Tune_XGBoosting
 
-The tuned Gradient Boosting model was selected as the production model.
+The tuned XG Boosting model was selected as the production model.
 
-### Why Tune_GradientBoosting?
+### Why Tune_XGBoosting?
 
-#### Best Pattern Recognition (R² = 0.5132)
+#### Strong Overall Performance
 
-The model captures the highest proportion of variance in rental prices, indicating a better understanding of pricing dynamics.
+The model achieves one of the lowest MAE scores (16.68), meaning its average prediction error remains among the best candidates.
 
-#### Reliable Prediction Accuracy (MAE = 16.95)
+#### Best Balance Between Accuracy and Robustness
 
-The average prediction error remains competitive while maintaining stronger explanatory power.
+Among the models with similarly low MAE, it delivers the highest R² (0.5132), capturing the largest share of rental price variability.
 
-#### Lowest Severe Error Risk (RMSE = 23.91)
+#### Lowest Risk of Large Errors
 
-RMSE heavily penalizes large mistakes. The champion model achieves the lowest score, making it the most robust production candidate.
+It also achieves the lowest RMSE (23.92) among the top-performing models, indicating better robustness and fewer large prediction mistakes.
 
 ---
 
@@ -540,7 +540,7 @@ Vehicle configuration and equipment significantly influence optimal rental price
 
 ## Ensemble Models Capture Pricing Dynamics Best
 
-Gradient Boosting methods consistently outperformed simpler linear approaches.
+XG Boosting methods consistently outperformed simpler linear approaches.
 
 ---
 
@@ -585,16 +585,31 @@ Example payload:
 ```json
 {
   "input": [
-    [7.0, 0.27, 0.36, 20.7, 0.045, 45.0, 170.0, 1.001, 3.0, 0.45, 8.8]
+    {
+      "model_key": "BMW",
+      "mileage": 10000,
+      "engine_power": 200,
+      "fuel": "petrol",
+      "paint_color": "white",
+      "car_type": "SUV",
+      "private_parking_available": true,
+      "has_gps": true,
+      "has_air_conditioning": true,
+      "automatic_car": true,
+      "has_getaround_connect": true,
+      "has_speed_regulator": true,
+      "winter_tires": true
+    }
   ]
 }
+
 ```
 
 ### Response
 
 ```json
 {
-  "prediction": [6]
+  "prediction": [153.42]
 }
 ```
 
