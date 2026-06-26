@@ -1,10 +1,10 @@
 {
     "executive_summary": {
-        "recommended_threshold": 60,
+        "recommended_threshold": 30,
         "recommended_scope": "all_cars",
-        "solved_cases_pct": 75.11,
-        "affected_rentals_pct": 21.71,
-        "key_message": "A 60-minute minimum delay provides the best trade-off between customer satisfaction and rental availability."
+        "solved_cases_pct": 72.42,
+        "affected_rentals_pct": 15.08,
+        "key_message": "A 30-minute minimum delay provides the best trade-off between customer satisfaction and rental availability."
     },
     "business_answers": {
         "driver_lateness": {
@@ -20,22 +20,22 @@
         },
         "rental_impact": {
             "question": "How many rentals would be affected by the recommended threshold?",
-            "threshold": 60,
-            "affected_rentals": 396,
-            "affected_rentals_pct": 21.71,
-            "interpretation": "A 60-minute buffer would affect 21.71% of successive rentals by making some booking combinations unavailable."
+            "threshold": 30,
+            "affected_rentals": 275,
+            "affected_rentals_pct": 15.08,
+            "interpretation": "A 30-minute buffer would affect 15.08% of successive rentals by making some booking combinations unavailable."
         },
         "problem_resolution": {
             "question": "How many problematic situations would be solved?",
-            "threshold": 60,
-            "solved_cases": 1370,
-            "solved_cases_pct": 75.11,
-            "interpretation": "The recommended threshold would solve 75.11% of problematic situations involving late returns."
+            "threshold": 30,
+            "solved_cases": 1321,
+            "solved_cases_pct": 72.42,
+            "interpretation": "The recommended threshold would solve 72.42% of problematic situations involving late returns."
         },
         "scope_decision": {
             "question": "Should the feature be enabled for all cars or only Connect vehicles?",
-            "affected_connect": 181,
-            "affected_mobile": 215,
+            "affected_connect": 131,
+            "affected_mobile": 144,
             "interpretation": "A significant number of impacted rentals come from both Connect and Mobile flows. Restricting the feature to Connect vehicles would leave many problematic situations unsolved. Therefore the recommended scope is all cars."
         }
     },
@@ -250,9 +250,9 @@
         }
     ],
     "connect_vs_mobile": {
-        "threshold": 60,
-        "affected_connect": 181,
-        "affected_mobile": 215
+        "threshold": 30,
+        "affected_connect": 131,
+        "affected_mobile": 144
     },
     "delay_distribution": {
         "median_minutes": 9.0,
@@ -261,12 +261,12 @@
         "p95_minutes": 319.2
     },
     "recommendation": {
-        "recommended_threshold": 60,
+        "recommended_threshold": 30,
         "recommended_threshold_hours": 2,
         "scope": "all_cars",
-        "solved_cases_pct": 75.11,
-        "affected_rentals_pct": 21.71,
-        "interpretation": "A threshold of 60 minutes (1 hour) is recommended because it solves approximately 75% of problematic situations while affecting only about 21% of successive rentals. Increasing the threshold beyond 60 minutes provides only limited additional customer protection while significantly increasing the number of affected rentals. This threshold therefore provides the best benefit-to-cost ratio."
+        "solved_cases_pct": 72.42,
+        "affected_rentals_pct": 15.08,
+        "interpretation": "A threshold of 30 minutes (1 hour) is recommended because it solves approximately 72% of problematic situations while affecting only about 20% of successive rentals. Increasing the threshold beyond 30 minutes provides only limited additional customer protection while significantly increasing the number of affected rentals. This threshold therefore provides the best benefit-to-cost ratio."
     },
     "figures": {
         "affected_curve": [

@@ -155,12 +155,12 @@ mobile_df = df_chain[
     df_chain["checkin_type"] == "mobile"
 ]
 
-connect_affected_60 = int(
-    (connect_df["time_delta"] < 60).sum()
+connect_affected_30 = int(
+    (connect_df["time_delta"] < 30).sum()
 )
 
-mobile_affected_60 = int(
-    (mobile_df["time_delta"] < 60).sum()
+mobile_affected_30 = int(
+    (mobile_df["time_delta"] < 30).sum()
 )
 
 
@@ -181,7 +181,7 @@ comparison_df["benefit_slope"] = (
 )
 
 # MOD
-recommended_threshold = 60
+recommended_threshold = 30
 
 # MOD
 recommended_row = comparison_df.loc[
@@ -194,10 +194,10 @@ recommended_row = comparison_df.loc[
 
 # MOD
 interpretation = (
-    "A threshold of 60 minutes (1 hour) is recommended because "
-    "it solves approximately 75% of problematic situations while "
-    "affecting only about 21% of successive rentals. "
-    "Increasing the threshold beyond 60 minutes provides only "
+    "A threshold of 30 minutes (1 hour) is recommended because "
+    "it solves approximately 72% of problematic situations while "
+    "affecting only about 20% of successive rentals. "
+    "Increasing the threshold beyond 30 minutes provides only "
     "limited additional customer protection while significantly "
     "increasing the number of affected rentals. "
     "This threshold therefore provides the best benefit-to-cost ratio."
@@ -318,8 +318,8 @@ business_answers = {
             "Should the feature be enabled for all cars "
             "or only Connect vehicles?"
         ),
-        "affected_connect": connect_affected_60,
-        "affected_mobile": mobile_affected_60,
+        "affected_connect": connect_affected_30,
+        "affected_mobile": mobile_affected_30,
         "interpretation": (
             "A significant number of impacted rentals come from both "
             "Connect and Mobile flows. Restricting the feature to "
@@ -330,7 +330,7 @@ business_answers = {
 }
 
 executive_summary = {
-    "recommended_threshold": 60,
+    "recommended_threshold": 30,
     "recommended_scope": "all_cars",
     "solved_cases_pct": float(
         recommended_row["solved_cases_pct"]
@@ -339,7 +339,7 @@ executive_summary = {
         recommended_row["affected_rentals_pct"]
     ),
     "key_message": (
-        "A 60-minute minimum delay provides the best "
+        "A 30-minute minimum delay provides the best "
         "trade-off between customer satisfaction and "
         "rental availability."
     )
@@ -394,16 +394,16 @@ bundle = {
     "threshold_analysis": threshold_results,
 
     "connect_vs_mobile": {
-        "threshold": 60,
-        "affected_connect": connect_affected_60,
-        "affected_mobile": mobile_affected_60,
+        "threshold": 30,
+        "affected_connect": connect_affected_30,
+        "affected_mobile": mobile_affected_30,
     },
 
     "delay_distribution": delay_distribution,
 
     # MOD
     "recommendation": {
-        "recommended_threshold": 60,
+        "recommended_threshold": 30,
         "recommended_threshold_hours": 2,
         # MOD
         "scope": "all_cars",
