@@ -35,7 +35,7 @@ To reduce customer dissatisfaction while preserving rental availability, differe
 
 | Parameter               | Recommendation |
 | ----------------------- | -------------- |
-| Minimum delay threshold | **60 minutes** |
+| Minimum delay threshold | **30 minutes** |
 | Scope                   | **All Cars**   |
 
 ## Expected Outcomes
@@ -113,10 +113,6 @@ within a complete production-oriented workflow.
 * Docker
 * Hugging Face Spaces
 
-## Development Environment
-
-* Jupyter Notebook
-* Visual Studio Code
 
 ---
 
@@ -339,13 +335,13 @@ The first part of the project focused on understanding the operational impact of
 
 ## Recommendation
 
-After evaluating multiple thresholds, a **60-minute minimum delay** emerged as the most balanced solution.
+After evaluating multiple thresholds, a **30-minute minimum delay** emerged as the most balanced solution.
 
 ### Benefits
 
-* Solves 75.11% of problematic situations
+* Solves 72% of problematic situations
 
-* Affects only 21.71% of successive rentals
+* Affects only 15% of successive rentals
 
 * Reduces customer support incidents
 
@@ -530,7 +526,7 @@ These variables contribute most strongly to rental price estimation.
 
 A substantial share of customer issues originates from delayed vehicle returns impacting subsequent rentals.
 
-## A 60-Minute Buffer Provides The Best Trade-Off
+## A 30-Minute Buffer Provides The Best Trade-Off
 
 The selected threshold solves most problematic situations while preserving the majority of rental opportunities.
 
@@ -664,9 +660,7 @@ uvicorn api.main:app --reload
 
 * Automated retraining workflows.
 * CI/CD deployment pipelines.
-* Model registry promotion workflows.
 * Real-time monitoring dashboards.
-* Dynamic pricing optimization.
 * Demand forecasting models.
 * Customer segmentation.
 * Production alerting systems.
